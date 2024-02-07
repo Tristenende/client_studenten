@@ -19,7 +19,13 @@ class GDPR {
 
 
 //student uitwerking
-
+        let buttonDecline = document.querySelector('.gdpr-consent__button--reject');
+        buttonDecline.addEventListener('click', () => {
+            this.cookieStatus('reject');
+            this.showStatus();
+            this.showContent();
+            this.hideGDPR();
+        });
 
     }
 
@@ -37,7 +43,9 @@ class GDPR {
 
 //student uitwerking
 
-            '.content-gdpr-not-chosen'];
+            '.content-gdpr-not-chosen',
+
+            '.content-gdpr-reject'];
 
         for(const c of classes){
             document.querySelector(c).classList.add('hide');
