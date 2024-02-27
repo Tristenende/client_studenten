@@ -18,18 +18,20 @@ document.addEventListener('DOMContentLoaded', function() {
 async function sendMail() {
     const mailContent = getContactFields();
 
+
     try {
-        let response = await fetch('http://localhost:7099/Mail', {
+        let response = await fetch('http://localhost:5136/Mail', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(mailContent)
         });
-        //let data = await response.json(); //DE ENE KEER WEL NODIG ANDERE KEER NIET????
+        // let data = await response.json(); //DE ENE KEER WEL NODIG ANDERE KEER NIET????
         flashCorrect();
         console.log(response);
     } catch(error) {
         flashIncorrectSend();
         console.log(error);
+        console.log(mailContent)
     }
 
 }
@@ -37,7 +39,7 @@ async function sendMail() {
 let incorrectFields = [];
 
 function getContactFields() {
-    const contactFields = {
+    return {
         firstName: document.getElementById('firstNameInput').value,
         lastName: document.getElementById('lastNameInput').value,
         phoneNumber: document.getElementById('phoneNumberInput').value,
@@ -45,7 +47,6 @@ function getContactFields() {
         subject: document.getElementById('subjectInput').value,
         body: document.getElementById('messageInput').value
     };
-    return contactFields;
 }
 
 function isFieldCorrect() {
@@ -103,3 +104,5 @@ function clearFlashMessages() {
     let errorDiv = document.getElementById("input-field");
     errorDiv.textContent = '';
 }
+
+
