@@ -4,21 +4,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="stylesheets/Header.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="js/contact.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body class="body_header">
 <header class="header_header">
     <div class="div_header">
-        <a href="index.html" class="button_header"><button>CV</button></a>
-        <a href="GDPR.html" class="button_header"><button>GDPR</button></a>
-        <a href="Contact.html" class="button_header"><button>Contact</button></a>
+        <button class="button_header"><a href="index.html">CV</a></button>
+        <button class="button_header"><a href="GDPR.html">GDPR</a></button>
+        <button class="button_header"><a href="Contact.html">Contact</a></button>
     </div>
 </header>
-
-<section class="section_header">
-    <!-- Your content goes here -->
-</section>
 </body>
+
+<section class="personalia-main">
+    <h1 class="person-name">Genoeg gezien? Neem contact met mij op!</h1>
+    <input id="firstNameInput" name="firstName" type="text" placeholder="* Voornaam" maxlength="60" required>
+    <input id="lastNameInput" name="lastName" type="text" placeholder="* Achternaam" maxlength="60" required>
+    <input id="phoneNumberInput" pattern="06-[0-9]{8}" name="phoneNumber" type="text" placeholder="* Nummer: 06-12345678" required>
+    <input id="emailInput" type="email" placeholder="* E-mail: voorbeeld@gmail.com" required>
+    <input id="subjectInput" name="subject" type="text" placeholder="* onderwerp (max 200 tekens)" maxlength="200" required>
+    <input id="messageInput" name="message" type="text" placeholder="* bericht (max 600 tekens)" maxlength="600" required>
+    <button id="sendForm" class="g-recaptcha"
+            data-sitekey="6LeyEoEpAAAAAGIFBz1qcSMW7FmlqzeBxNiAPucL"
+            data-callback='onSubmit'
+            data-action='submit'>Verzenden</button>
+
+    <h3 id="input-field"></h3>
+</section>
+
 
 <body>
 

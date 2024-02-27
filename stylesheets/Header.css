@@ -34,6 +34,10 @@
     display: inline-block; /* Fix for the inline-link issue */
 }
 
+.button_custom{
+    background: transparent;
+}
+
 .button_header a {
     color: #fff;
     text-decoration: none;

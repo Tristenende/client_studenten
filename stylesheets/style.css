@@ -14,6 +14,18 @@
     align-items: center;
 }
 
+
+.personalia-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.personalia-content {
+    padding-left: 15px;
+    font-size: 18px;
+}
+
 .profile {
     background-color: #faf8f8;
     width: 100%;
