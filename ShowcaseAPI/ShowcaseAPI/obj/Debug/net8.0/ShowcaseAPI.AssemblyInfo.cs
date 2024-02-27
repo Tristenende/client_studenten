@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ShowcaseAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a941b217827bf5f4fb741941d0b96d8b95578d3b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f334ce9568d9dff194633b5143330d2fed4e478")]
 [assembly: System.Reflection.AssemblyProductAttribute("ShowcaseAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ShowcaseAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

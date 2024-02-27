@@ -22,10 +22,10 @@ namespace ShowcaseAPI.Services
                 var client = new SmtpClient("sandbox.smtp.mailtrap.io", 2525)
                 {
                     // hide username and password in encrypted db file
-                    Credentials = new NetworkCredential("bd1645d5a89d14", "88db40620f06ed"),
+                    Credentials = new NetworkCredential("03b84b40196d96", "41089eed938cff"),
                     EnableSsl = true
                 };
-                client.Send(mail.Email, "qrveenstra@gmail.com", mail.Subject, mail.Body);
+                client.Send(mail.Email, "tristenende@gmail.com", mail.Subject, mail.Body);
 
                 return true;
             } catch (Exception ex)

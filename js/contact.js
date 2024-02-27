@@ -19,7 +19,7 @@ async function sendMail() {
     const mailContent = getContactFields();
 
     try {
-        let response = await fetch('http://localhost:5136/Mail', {
+        let response = await fetch('http://localhost:7099/Mail', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(mailContent)
