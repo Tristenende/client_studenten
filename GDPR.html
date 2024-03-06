@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/Header.css">
     <script defer src="js/gdpr.js"></script>
-    <title>Title</title>
+    <title>GDPR</title>
 </head>
 
 
@@ -52,5 +52,34 @@
     </div>
 
 </section>
+
+<template id="chat-message">
+
+    <style>
+        #chat-message {
+            background-color: black;
+            padding: 5px;
+        }
+    </style>
+
+    <p>
+        <slot name="chat-body">Default chat message</slot>
+    </p>
+</template>
+
+<script>
+    class CustomTitle extends HTMLElement {
+        connectedCallback(){
+
+            this.innerHTML = `<h1>djaiojd</h1>`
+        }
+    }
+
+    customElements.define('custom-title', CustomTitle)
+</script>
+
+<custom-title></custom-title>
+
+
 </body>
 </html>

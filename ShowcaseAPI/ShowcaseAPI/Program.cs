@@ -3,14 +3,17 @@ using ShowcaseAPI.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowOrigin",
-        builder =>
-        {
-            builder.WithOrigins("http://localhost:63343")
-                   .AllowAnyHeader()
-                   .AllowAnyMethod();
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+// Add services to the container.
+builder.Services.AddCors(options => {
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        builder => {
+            builder
+                .AllowAnyOrigin()
+                .WithMethods("POST")
+                .WithMethods("GET")
+                .AllowAnyHeader();
         });
 });
 
@@ -35,7 +38,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AllowOrigin");
+app.UseCors(MyAllowSpecificOrigins);
 
 app.UseAuthorization();
 

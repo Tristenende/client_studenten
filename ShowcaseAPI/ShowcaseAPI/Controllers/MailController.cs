@@ -5,9 +5,10 @@ using ShowcaseAPI.Services;
 
 namespace ShowcaseAPI.Controllers
 {
-    [ApiController]
     [EnableCors]
-    [Route("[controller]")]
+    [ApiController]
+
+[Route("[controller]")]
     public class MailController : Controller
     {
         private readonly IMailService _mailService;
@@ -24,10 +25,10 @@ namespace ShowcaseAPI.Controllers
 
             if (status)
             {
-                return StatusCode(200, "Postduif is weggevlogen");
+                return StatusCode(200, "Mailtje is in je mailbox bitchesss");
             } else
             {
-                return StatusCode(420, "Ik heb net in men broek gepoept");
+                return StatusCode(420, "Je mailtje is gefaald");
             }
 
         }

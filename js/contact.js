@@ -2,14 +2,18 @@ document.addEventListener('DOMContentLoaded', function() {
     const sendInformation = document.getElementById('sendForm');
 
     sendInformation.addEventListener('click', async function() {
+
+        showLoadingScreen()
         incorrectFields.length = 0;
 
         if(isFieldCorrect()) {
             sendMail();
             clearFormFields();
             clearFlashMessages();
+            hideLoadingScreen()
         } else {
             flashIncorrect();
+            hideLoadingScreen()
         }
 
     });
@@ -20,13 +24,18 @@ async function sendMail() {
 
 
     try {
-        let response = await fetch('http://localhost:5136/Mail', {
+        let response = await fetch('https://localhost:7099/Mail', {
             method: 'POST',
+            mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(mailContent)
         });
-        // let data = await response.json(); //DE ENE KEER WEL NODIG ANDERE KEER NIET????
-        flashCorrect();
+
+        if(response.status == 200){
+            flashCorrect();
+        } else{
+            flashError()
+        }
         console.log(response);
     } catch(error) {
         flashIncorrectSend();
@@ -82,6 +91,15 @@ function flashIncorrect() {
     errorDiv.textContent = errorMessage;
 }
 
+function flashError() {
+    let errorMessage = "Er is iets misgegaan op de server!";
+
+    let errorDiv = document.getElementById("input-field");
+    errorDiv.classList.remove('input-field');
+
+    errorDiv.textContent = errorMessage;
+}
+
 function flashIncorrectSend() {
     let errorMessage = "Er is iets fout gegaan bij het versturen, probeer het later opnieuw";
 
@@ -103,6 +121,14 @@ function clearFormFields() {
 function clearFlashMessages() {
     let errorDiv = document.getElementById("input-field");
     errorDiv.textContent = '';
+}
+
+function showLoadingScreen() {
+    document.getElementById('loadingScreen').style.display = 'flex';
+}
+
+function hideLoadingScreen() {
+    document.getElementById('loadingScreen').style.display = 'none';
 }
 
 
